@@ -1,0 +1,223 @@
+---
+import "../styles/global.css";
+const base = import.meta.env.BASE_URL;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+    <title>Alan Antonio Orellana Arguera | Front-End Developer & UI/UX</title>
+    <meta
+      name="description"
+      content="Alan Antonio Orellana Arguera — Front-End Developer enfocado en UI/UX. Diseño y construyo experiencias digitales claras, funcionales y cuidadas en los detalles."
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="#inicio" class="logo" aria-label="Inicio">
+          <img src={`${base}logoAO.png`} alt="Logotipo AO" />
+          <span>Alan Orellana</span>
+        </a>
+        <nav aria-label="Navegación principal">
+          <ul>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#que-hago">Qué hago</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="inicio">
+        <div class="container hero-content">
+          <h1 class="hero-name">Alan Antonio Orellana Arguera.</h1>
+          <p class="hero-role">Front-End Developer · UI/UX</p>
+          <p class="hero-description">
+            Diseño y construyo experiencias digitales poniendo atención en los
+            detalles, escuchando a las personas y buscando siempre una mejor
+            forma de hacer las cosas.
+          </p>
+          <div class="hero-actions">
+            <a href="#proyectos" class="button button-primary">Ver proyectos</a>
+            <a href="#contacto" class="button button-secondary">Contactarme</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sobre mí -->
+      <section class="about" id="sobre-mi">
+        <div class="container">
+          <div class="about-top">
+            <div class="about-text">
+              <span class="section-label">Sobre mí</span>
+              <h2>Una forma de trabajar basada en escuchar, cuestionar y construir.</h2>
+              <p class="section-intro">
+                Me gusta convertir ideas en experiencias digitales claras y
+                funcionales, entendiendo primero el problema y buscando
+                oportunidades para mejorar.
+              </p>
+            </div>
+            <div class="about-photo">
+              <!-- [REEMPLAZAR] Sube tu foto a /public/foto-sobre-mi.jpg -->
+              <img src={`${base}foto-sobre-mi.jpg`} alt="Foto de Alan Orellana" />
+            </div>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-card">
+              <span class="process-step">01</span>
+              <h3>Escuchar</h3>
+              <p>
+                Entender antes de construir. Escuchar las ideas, necesidades y
+                perspectivas de quienes forman parte del proyecto.
+              </p>
+            </article>
+            <article class="process-card">
+              <span class="process-step">02</span>
+              <h3>Cuestionar</h3>
+              <p>
+                Buscar el porqué y encontrar oportunidades de mejora,
+                cuestionando las decisiones para construir soluciones mejor
+                pensadas.
+              </p>
+            </article>
+            <article class="process-card">
+              <span class="process-step">03</span>
+              <h3>Construir</h3>
+              <p>
+                Convertir ideas en experiencias funcionales y cuidadas,
+                aprendiendo durante el proceso y mejorando junto con las
+                personas que las utilizan.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Qué hago -->
+      <section class="territories" id="que-hago">
+        <div class="container">
+          <span class="section-label">Qué hago</span>
+          <h2>Mis territorios.</h2>
+          <p class="section-intro">
+            Tres áreas que conectan mi forma de pensar con la manera en que
+            construyo productos digitales.
+          </p>
+
+          <div class="territory-grid">
+            <article class="territory-card">
+              <h3>Front-End & UI</h3>
+              <p>Construir interfaces web claras, funcionales y cuidadas en los detalles.</p>
+            </article>
+            <article class="territory-card">
+              <h3>Diseño centrado en las personas</h3>
+              <p>Escuchar, entender necesidades y convertir ideas en experiencias digitales.</p>
+            </article>
+            <article class="territory-card">
+              <h3>Mejora & exploración</h3>
+              <p>Cuestionar, investigar y encontrar oportunidades para mejorar lo que ya existe.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proyectos -->
+      <section class="projects" id="proyectos">
+        <div class="container">
+          <span class="section-label">Proyectos</span>
+          <h2>Lo que estoy construyendo.</h2>
+          <p class="section-intro">
+            Proyectos donde puedo convertir ideas en experiencias digitales y
+            aplicar lo que sigo aprendiendo.
+          </p>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <!-- [REEMPLAZAR] Sube tu imagen a /public/proyectos/royale-palace.jpg -->
+              <div class="project-bg" style={`background-image: url(${base}proyectos/royale-palace.jpg)`}></div>
+              <div class="project-panel">
+                <div>
+                  <h3>The Royale Palace</h3>
+                  <p>
+                    Sistema de reservaciones multi-sede para restaurante,
+                    construido con Laravel. Roles de administrador y usuario,
+                    reportes en PDF y diseño responsivo con Bootstrap.
+                  </p>
+                </div>
+                <a href="https://github.com/alanorellanaA503/royale-palace" class="project-link" target="_blank">Ver proyecto →</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <!-- [REEMPLAZAR] Sube tu imagen a /public/proyectos/webly.jpg -->
+              <div class="project-bg" style={`background-image: url(${base}proyectos/webly.jpg)`}></div>
+              <div class="project-panel">
+                <div>
+                  <h3>Webly</h3>
+                  <p>
+                    Sitio web informativo para una microempresa
+                    de diseño web y servicios digitales, enfocado en
+                    estructura clara y experiencia de usuario.
+                  </p>
+                </div>
+                <a href="https://github.com/alanorellanaA503/webly-website-dpw" class="project-link" target="_blank">Ver proyecto →</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <!-- [REEMPLAZAR] Sube tu imagen a /public/proyectos/erp.jpg -->
+              <div class="project-bg" style={`background-image: url(${base}proyectos/erp.jpg)`}></div>
+              <div class="project-panel">
+                <div>
+                  <h3>Sistema ERP</h3>
+                  <p>
+                    Pequeño ERP en desarrollo con Laravel 12 y Filament 5, conectado a una base de datos
+                    SQLite.
+                  </p>
+                </div>
+                <span class="project-link project-link-muted">En proceso</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section class="contact" id="contacto">
+        <div class="container">
+          <span class="section-label">Contacto</span>
+          <h2>Construyamos algo bien pensado.</h2>
+          <p class="contact-description">
+            Si tienes un proyecto en mente o una oportunidad profesional,
+            escríbeme directamente aquí o encuéntrame en mis redes.
+          </p>
+
+          <a
+            href="mailto:alan.orellana.arguera@gmail.com?subject=Hablemos%20de%20un%20proyecto&body=Hola%20Alan%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20hablar%20contigo%20sobre..."
+            class="button button-primary contact-mail-button"
+          >
+            Escríbeme por correo
+          </a>
+
+          <div class="contact-links">
+            <a href="mailto:alan.orellana.arguera@gmail.com" class="contact-link">alan.orellana.arguera@gmail.com</a>
+            <a href="https://www.linkedin.com/in/alan-orellana/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+            <a href="https://github.com/alanorellanaA503/" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <span class="footer-brand">AO · Alan Orellana</span>
+        <span>Front-End · UI/UX</span>
+        <span>© 2026</span>
+      </div>
+    </footer>
+  </body>
+</html>
