@@ -267,14 +267,31 @@ nav a:hover {
   margin-top: 56px;
 }
 
+
+/* Texto de la sección un poco más grande (solo en "Qué hago") */
+.territories .section-label {
+  font-size: 1.15rem;
+}
+
+.territories h2 {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+}
+
+.territories .section-intro {
+  font-size: 1.2rem;
+}
+
+/* Tarjetas con imagen parallax */
 .territory-card {
-  min-height: 240px;
-  padding: 30px;
+  position: relative;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   border-radius: var(--radius);
-  background: rgba(242, 240, 232, 0.03);
+  overflow: hidden;
+  /* evita que la imagen se salga de la tarjeta */
+  background: var(--ash);
   border: 1px solid rgba(242, 240, 232, 0.08);
   transition: border-color 0.25s ease;
 }
@@ -283,15 +300,48 @@ nav a:hover {
   border-color: var(--emerald);
 }
 
+.territory-bg {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  /* muestra la imagen COMPLETA dentro de la tarjeta */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Solo para Front-End & UI: llena todo el cuadro, sin franjas laterales */
+.territory-bg--zoom {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Velo oscuro para que el texto se lea y la imagen quede de fondo */
+.territory-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(18, 24, 26, 0.95) 0%,
+      rgba(18, 24, 26, 0.7) 45%,
+      rgba(18, 24, 26, 0.45) 100%);
+}
+
+.territory-content {
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+}
+
 .territory-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .territory-card p {
   margin-top: 10px;
-  color: var(--text-muted);
-  font-size: 0.93rem;
+  color: #c3cfca;
+  font-size: 1rem;
 }
+
 
 /* Proyectos */
 
