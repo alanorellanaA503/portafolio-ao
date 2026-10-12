@@ -206,7 +206,9 @@ nav a:hover {
   z-index: 0;
   right: -8%;
   bottom: -22%;
-  width: 70%;
+  top:100%;
+  width: 50rem;
+  height: 10rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--ash);
@@ -701,10 +703,25 @@ footer {
     aspect-ratio: 1 / 0.95;
   }
         
-  .hero-blob {
- right: -14%;
- bottom: -30%;
-  width: 95%;
+ .hero-blob {
+   /* Eliminamos top/right/bottom desproporcionados */
+   top: auto;
+   right: auto;
+   left: 50%;
+   bottom: -4%;
+   transform: translateX(-50%);
+
+   /* Dimensiones adecuadas para pantalla móvil */
+   width: 105%;
+   height: 5rem;
+   aspect-ratio: auto;
+
+   /* Estilo de base/resplandor integrado con tus variables CSS */
+   border-radius: 50%;
+   background: radial-gradient(ellipse at center, rgba(39, 251, 107, 0.45) 0%, rgba(10, 46, 54, 0.2) 60%, transparent 80%);
+   filter: blur(14px);
+   opacity: 0.9;
+   z-index: 0;
  }
         
 .hero-laptop {
@@ -723,6 +740,8 @@ bottom: -8%;
       grid-template-columns: 1fr;
       gap: 40px;
     }
+
+  
 }
 
 @media (max-width: 520px) {
