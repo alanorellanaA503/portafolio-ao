@@ -123,18 +123,114 @@ nav a:hover {
 /* Hero */
 
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: 100svh;
   display: flex;
   align-items: center;
   padding-top: 120px;
+  background: linear-gradient(135deg, var(--ash) 0%, var(--jet-black) 100%);
+}
+
+/* Aurora boreal sutil: dos capas que se mueven con transform (barato para el navegador) */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero::before {
+  background:
+    radial-gradient(ellipse 60% 16% at 72% 22%, rgba(39, 251, 107, 0.13), transparent 70%),
+    radial-gradient(ellipse 48% 13% at 38% 40%, rgba(20, 204, 96, 0.11), transparent 70%);
+  animation: aurora-a 28s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  background:
+    radial-gradient(ellipse 55% 18% at 78% 62%, rgba(24, 120, 130, 0.18), transparent 70%),
+    radial-gradient(ellipse 42% 12% at 55% 78%, rgba(3, 109, 25, 0.28), transparent 70%);
+  animation: aurora-b 36s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-a {
+  from {
+    transform: translate3d(-6%, -2%, 0) rotate(-5deg) scale(1.05);
+  }
+
+  to {
+    transform: translate3d(6%, 3%, 0) rotate(4deg) scale(1.2);
+  }
+}
+
+@keyframes aurora-b {
+  from {
+    transform: translate3d(5%, 3%, 0) rotate(4deg) scale(1.15);
+  }
+
+  to {
+    transform: translate3d(-6%, -3%, 0) rotate(-6deg) scale(1.05);
+  }
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  /* el contenido siempre queda por encima de la aurora */
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 40px;
 }
 
 .hero-content {
-  max-width: 780px;
+  max-width: 560px;
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+}
+
+.hero-visual {
+  position: relative;
+  height: min(72vh, 580px);
+  /* deja que los mockups lleguen hasta el borde derecho de la pantalla */
+  margin-right: calc((100vw - min(100vw - 40px, var(--max-width))) / -2);
+}
+
+.hero-blob {
+  position: absolute;
+  z-index: 0;
+  right: -8%;
+  bottom: -22%;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ash);
+  opacity: 0.85;
+}
+
+.hero-laptop {
+  position: absolute;
+  z-index: 1;
+  top: 8%;
+  right: -3%;
+  width: 104%;
+  max-width: none;
+  height: auto;
+}
+
+.hero-phone {
+  position: absolute;
+  z-index: 2;
+  right: 1%;
+  bottom: -20%;
+  width: 39%;
+  max-width: none;
+  height: auto;
 }
 
 .hero-name {
@@ -239,16 +335,34 @@ nav a:hover {
   padding: 30px;
   border: 1px solid rgba(242, 240, 232, 0.1);
   border-radius: var(--radius);
+  background: rgba(242, 240, 232, 0.025);
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
+.process-card:hover {
+  border-color: rgba(39, 251, 107, 0.4);
+  background: rgba(242, 240, 232, 0.05);
+}
+
+/* Número + línea que se desvanece: sugiere que los pasos van en secuencia */
 .process-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   color: var(--spring-green);
   font-family: "Fraunces", serif;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
+}
+
+.process-step::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(39, 251, 107, 0.5), transparent);
 }
 
 .process-card h3 {
-  margin-top: 30px;
+  margin-top: 22px;
   font-size: 1.4rem;
 }
 
@@ -401,17 +515,53 @@ nav a:hover {
 }
 
 .project-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin-top: 20px;
-  display: inline-block;
-  color: #0a2e36;
-  font-size: 1.05rem;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  padding: 11px 20px;
+  border-radius: 10px;
+  background: var(--ash);
+  color: var(--ivory);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
+.project-link span {
+  transition: transform 0.2s ease;
+}
+
+.project-link:hover {
+  background: var(--spring-green);
+  color: var(--ash);
+}
+
+.project-link:hover span {
+  transform: translateX(4px);
+}
+
+/* "En proceso": no es un botón, es una etiqueta */
 .project-link-muted {
-  color: #6b7672;
+  background: transparent;
+  color: #3c4a46;
+  border: 1px dashed rgba(18, 24, 26, 0.4);
+  cursor: default;
+}
+
+.project-link-muted::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald);
+}
+
+.project-link-muted:hover {
+  background: transparent;
+  color: #3c4a46;
 }
 
 /* Contacto */
@@ -446,26 +596,46 @@ nav a:hover {
   background: #06120f;
 }
 
-.contact-links {
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.contact-list {
+  list-style: none;
+  border: 1px solid rgba(242, 240, 232, 0.2);
+  border-radius: var(--radius);
+  background: rgba(18, 24, 26, 0.35);
+  overflow: hidden;
+}
+
+.contact-list li+li {
+  border-top: 1px solid rgba(242, 240, 232, 0.14);
+}
+
+.contact-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
-}
-
-.contact-link {
-  padding: 12px 18px;
-  border: 1px solid rgba(242, 240, 232, 0.3);
-  border-radius: 10px;
-  color: var(--ivory);
-  font-size: 0.88rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
   font-weight: 500;
-  transition: background 0.2s ease, color 0.2s ease;
+  overflow-wrap: anywhere;
+  transition: background 0.2s ease;
 }
 
-.contact-link:hover {
-  background: var(--ivory);
-  color: var(--ash);
+.contact-row:hover {
+  background: rgba(242, 240, 232, 0.08);
+}
+
+.contact-arrow {
+  transition: transform 0.2s ease;
+}
+
+.contact-row:hover .contact-arrow {
+  transform: translate(3px, -3px);
 }
 
 /* Footer */
@@ -514,6 +684,45 @@ footer {
     aspect-ratio: 16 / 10;
     order: -1;
   }
+
+    .hero {
+    min-height: auto;
+    padding: 110px 0 70px;
+  }
+        
+    .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+        
+/* ya no se anula el margin-right: así los mockups llegan al borde derecho */
+  .hero-visual {
+  height: auto;
+    aspect-ratio: 1 / 0.95;
+  }
+        
+  .hero-blob {
+ right: -14%;
+ bottom: -30%;
+  width: 95%;
+ }
+        
+.hero-laptop {
+  top: 2%;
+ right: -5%;
+ width: 112%;
+ }
+        
+.hero-phone {
+ right: 0%;
+bottom: -8%;
+ width: 40%;
+}
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
 }
 
 @media (max-width: 520px) {
@@ -553,4 +762,9 @@ footer {
   * {
     transition: none !important;
   }
+
+    .hero::before,
+    .hero::after {
+      animation: none;
+    }
 }

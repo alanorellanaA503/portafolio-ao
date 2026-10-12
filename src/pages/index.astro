@@ -33,22 +33,30 @@ const base = import.meta.env.BASE_URL;
     </header>
 
     <main>
-      <!-- Hero -->
-      <section class="hero" id="inicio">
-        <div class="container hero-content">
-          <h1 class="hero-name">Alan Antonio Orellana Arguera.</h1>
-          <p class="hero-role">Front-End Developer · UI/UX</p>
-          <p class="hero-description">
-            Diseño y construyo experiencias digitales poniendo atención en los
-            detalles, escuchando a las personas y buscando siempre una mejor
-            forma de hacer las cosas.
-          </p>
-          <div class="hero-actions">
-            <a href="#proyectos" class="button button-primary">Ver proyectos</a>
-            <a href="#contacto" class="button button-secondary">Contactarme</a>
-          </div>
-        </div>
-      </section>
+     <!-- Hero -->
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <h1 class="hero-name">Alan Antonio Orellana Arguera.</h1>
+      <p class="hero-role">Front-End Developer · UI/UX</p>
+      <p class="hero-description">
+        Diseño y construyo experiencias digitales poniendo atención en los
+        detalles, escuchando a las personas y buscando siempre una mejor
+        forma de hacer las cosas.
+      </p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="button button-primary">Ver proyectos</a>
+        <a href="#contacto" class="button button-secondary">Contactarme</a>
+      </div>
+    </div>
+
+   <div class="hero-visual">
+  <div class="hero-blob" data-speed="0.08" aria-hidden="true"></div>
+  <img class="hero-laptop" data-speed="0.08" src={`${base}hero/pcmokup.svg`} alt="Webly SV V3 mostrado en una laptop" fetchpriority="high" decoding="async" />
+  <img class="hero-phone" data-speed="-0.08" src={`${base}hero/celular.svg`} alt="" decoding="async" />
+</div>
+  </div>
+</section>
 
       <!-- Sobre mí -->
       <section class="about" id="sobre-mi">
@@ -159,7 +167,7 @@ const base = import.meta.env.BASE_URL;
                     reportes en PDF y diseño responsivo con Bootstrap.
                   </p>
                 </div>
-                <a href="https://github.com/alanorellanaA503/royale-palace" class="project-link" target="_blank">Ver proyecto →</a>
+                <a href="https://github.com/alanorellanaA503/royale-palace" class="project-link" target="_blank" rel="noopener noreferrer">Ver proyecto <span aria-hidden="true">→</span></a>
               </div>
             </article>
             <article class="project-card">
@@ -174,7 +182,7 @@ const base = import.meta.env.BASE_URL;
                   formularios y navegación entre vistas.
                 </p>
               </div>
-              <a href="https://github.com/alanorellanaA503/webly-sv-v3" class="project-link" target="_blank">Ver proyecto →</a>
+              <a href="https://github.com/alanorellanaA503/webly-sv-v3" class="project-link" target="_blank" rel="noopener noreferrer">Ver proyecto <span aria-hidden="true">→</span></a>
             </div>
           </article>
             <article class="project-card">
@@ -197,27 +205,44 @@ const base = import.meta.env.BASE_URL;
 
       <!-- Contacto -->
       <section class="contact" id="contacto">
-        <div class="container">
-          <span class="section-label">Contacto</span>
-          <h2>Construyamos algo bien pensado.</h2>
-          <p class="contact-description">
-            Si tienes un proyecto en mente o una oportunidad profesional,
-            escríbeme directamente aquí o encuéntrame en mis redes.
-          </p>
+        <div class="container contact-grid">
+  <div class="contact-main">
+    <span class="section-label">Contacto</span>
+    <h2>Construyamos algo bien pensado.</h2>
+    <p class="contact-description">
+      Si tienes un proyecto en mente o una oportunidad profesional,
+      escríbeme directamente aquí o encuéntrame en mis redes.
+    </p>
 
-          <a
-            href="mailto:alan.orellana.arguera@gmail.com?subject=Hablemos%20de%20un%20proyecto&body=Hola%20Alan%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20hablar%20contigo%20sobre..."
-            class="button button-primary contact-mail-button"
-          >
-            Escríbeme por correo
-          </a>
+    <a
+      href="mailto:alan.orellana.arguera@gmail.com?subject=Hablemos%20de%20un%20proyecto&body=Hola%20Alan%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20hablar%20contigo%20sobre..."
+      class="button button-primary contact-mail-button"
+    >
+      Escríbeme por correo
+    </a>
+  </div>
 
-          <div class="contact-links">
-            <a href="mailto:alan.orellana.arguera@gmail.com" class="contact-link">alan.orellana.arguera@gmail.com</a>
-            <a href="https://www.linkedin.com/in/alan-orellana/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
-            <a href="https://github.com/alanorellanaA503/" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
-          </div>
-        </div>
+  <ul class="contact-list">
+    <li>
+      <a href="mailto:alan.orellana.arguera@gmail.com" class="contact-row">
+        <span>alan.orellana.arguera@gmail.com</span>
+        <span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/alan-orellana/" target="_blank" rel="noopener noreferrer" class="contact-row">
+        <span>LinkedIn</span>
+        <span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/alanorellanaA503/" target="_blank" rel="noopener noreferrer" class="contact-row">
+        <span>GitHub</span>
+        <span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+    </li>
+  </ul>
+</div>
       </section>
     </main>
 
@@ -228,5 +253,35 @@ const base = import.meta.env.BASE_URL;
         <span>© 2026</span>
       </div>
     </footer>
+
+    <script>
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const layers = document.querySelectorAll("[data-speed]");
+  let ticking = false;
+
+  function update() {
+    const y = window.scrollY;
+    const factor = window.innerWidth < 850 ? 0.5 : 1; // más suave en móvil
+    if (y < window.innerHeight * 1.5) {
+      layers.forEach((el) => {
+        const speed = parseFloat(el.dataset.speed);
+        el.style.transform = `translate3d(0, ${y * speed * factor}px, 0)`;
+      });
+    }
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  if (!reduce.matches) {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+  }
+</script>
   </body>
 </html>
