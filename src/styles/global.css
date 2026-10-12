@@ -640,6 +640,24 @@ nav a:hover {
   transform: translate(3px, -3px);
 }
 
+/* Íconos: astro-icon marca cada <svg> con data-icon */
+[data-icon] {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+}
+
+.contact-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-arrow,
+.project-link span {
+  display: inline-flex;
+}
+
 /* Footer */
 
 footer {
